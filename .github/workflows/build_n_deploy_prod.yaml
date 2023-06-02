@@ -2,7 +2,7 @@ name: Buld and deploy prod
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   sanity-deploy:
