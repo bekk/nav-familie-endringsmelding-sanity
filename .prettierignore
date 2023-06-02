@@ -1,0 +1,11 @@
+*.json
+*.less
+*.yaml
+*.yml
+*.md
+*.html
+/node_modules/
+/plugins/
+/dist/
+/.idea/
+/.sanity/
