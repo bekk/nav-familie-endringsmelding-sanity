@@ -1,0 +1,24 @@
+name: Oppdater BA-sak testsett
+on:
+  workflow_dispatch:
+
+jobs:
+  backup-production-dataset:
+    runs-on: ubuntu-latest
+    name: Oppdater testdata med proddata
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Installer sanity
+        run: yarn global add @sanity/cli && sanity install
+
+      - name: Exporter production dataset
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_VIEWER_TOKEN }}
+        run: sanity dataset export production backups/production.tar.gz
+
+      - name: Importer production dataset til test
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+        run: sanity dataset import backups/production.tar.gz test --replace

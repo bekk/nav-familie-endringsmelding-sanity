@@ -1,0 +1,17 @@
+name: Buld and deploy prod
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  sanity-deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Sanity
+    steps:
+      - uses: actions/checkout@v3
+      - uses: sanity-io/github-action-sanity@v0.4-alpha
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_SECRET }}
+        with:
+          args: . deploy

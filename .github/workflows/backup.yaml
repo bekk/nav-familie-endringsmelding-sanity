@@ -1,0 +1,36 @@
+name: Backup Routine
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Runs at 04:00 UTC on the 1st and 17th of every month
+    - cron: "0 4 */16 * *"
+
+jobs:
+  backup-production-dataset:
+    runs-on: ubuntu-latest
+    name: Backup
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Installer sanity
+        run: yarn global add @sanity/cli && sanity install
+
+      - name: Export production dataset
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_VIEWER_TOKEN }}
+        run: sanity dataset export production backups/production.tar.gz
+
+      - name: Upload production.tar.gz
+        uses: actions/upload-artifact@v3
+        with:
+          name: backup-production
+          path: backups/production.tar.gz
+          # Fails the workflow if no files are found; defaults to 'warn'
+          if-no-files-found: error
+
+      - name: Import production dataset til test
+        env:
+          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_WRITE_TOKEN }}
+        run: sanity dataset import backups/production.tar.gz test --replace
