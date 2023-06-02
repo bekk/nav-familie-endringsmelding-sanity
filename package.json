@@ -10,7 +10,9 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
-    "lint": "eslint --fix . && prettier --write ."
+    "lint": "eslint --fix . && prettier --write .",
+    "lint-staged": "lint-staged",
+    "prepare": "husky install"
   },
   "keywords": [
     "sanity"
@@ -28,6 +30,8 @@
     "@types/react": "^18.0.25",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.6.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.8",
     "typescript": "~5.0.4"
   }
