@@ -11,6 +11,7 @@
     "deploy": "sanity deploy",
     "deploy-graphql": "sanity graphql deploy",
     "lint": "eslint --fix . && prettier --write .",
+    "lint-staged": "lint-staged",
     "prepare": "husky install"
   },
   "keywords": [
