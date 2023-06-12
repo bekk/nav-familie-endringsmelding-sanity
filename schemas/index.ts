@@ -1,10 +1,4 @@
 import customBlock from './felles/customBlock'
-import localeBlock from './felles/localeBlock'
-import localeBlockForStegDokument from './felles/localeBlockForStegDokument'
-import { DokumentNavn, Steg } from './typer'
+import { forside } from './steg/forside'
 
-export const schemaTypes = [
-  customBlock,
-  localeBlock,
-  localeBlockForStegDokument(Steg.FORSIDE, DokumentNavn.FORSIDE_VEILEDERHILSEN),
-]
+export const schemaTypes = [customBlock, ...forside()]

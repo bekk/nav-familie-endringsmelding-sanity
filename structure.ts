@@ -1,48 +1,37 @@
 //import { WebPreview, JsonView } from './previews'
 import { DokumentNavn, dokumentTittel, Steg, stegTittel } from './schemas/typer'
-import { Divider, ListItem, ListItemBuilder } from 'sanity/lib/exports/desk'
+import { Divider, ListItem, ListItemBuilder, StructureBuilder } from 'sanity/lib/exports/desk'
+import FileIcon from './ikoner/FileIcon'
 
-export const structure = (S: any, context: any) =>
-  S.list()
+export const structure = (S: StructureBuilder, context: any) => {
+  const mappe = genererMappe(S)
+  const dokument = genererDokument(S)
+
+  return S.list()
     .title('Endringsdialog')
     .items([
-      S.listItem()
-        .title('Steg')
-        .child(
-          S.list()
-            .title('Steg')
-            .items([
-              stegMappe(S, Steg.FORSIDE, [
-                documentListItem(S, DokumentNavn.FORSIDE_VEILEDERHILSEN),
-              ]),
-            ])
-        ),
-      ...S.documentTypeListItems(),
+      mappe({
+        mappenavn: 'Ordinær barnetrygd',
+        items: [
+          mappe({
+            mappenavn: stegTittel[Steg.FORSIDE],
+            items: [
+              dokument(DokumentNavn.FORSIDE_TITTEL),
+              dokument(DokumentNavn.FORSIDE_VEILEDER_TITTEL),
+            ],
+          }),
+        ],
+      }),
     ])
-
-const stegMappe = (S: any, steg: Steg, items: (ListItemBuilder | ListItem | Divider)[]) =>
-  S.listItem().title(stegTittel[steg]).child(S.list().title(stegTittel[steg]).items(items))
-
-const documentListItem = (S: any, dokumentNavn: DokumentNavn) => {
-  return (
-    S.listItem()
-      .title(dokumentTittel[dokumentNavn])
-      //.icon(() => <FileIcon />)
-      .child(S.defaultDocument({ documentId: dokumentNavn, schemaType: dokumentNavn }))
-  )
 }
 
-/*export const defaultDocumentNode = (S: any, {schemaType}: any) => {
-    // Conditionally return a different configuration based on the schema type
-    if (schemaType === "post") {
-        return S.document().views([
-            S.view.form(),
-            S.view.component(WebPreview).title('Web')
-        ])
-    }
+const genererMappe =
+  (S: StructureBuilder) =>
+  ({ mappenavn, items }: { mappenavn: string; items: (ListItemBuilder | ListItem | Divider)[] }) =>
+    S.listItem().title(mappenavn).child(S.list().title(mappenavn).items(items))
 
-    return S.document().views([
-        S.view.form(),
-        S.view.component(JsonView).title('JSON')
-    ])
-}*/
+const genererDokument = (S: StructureBuilder) => (dokumentNavn: DokumentNavn) =>
+  S.listItem()
+    .title(dokumentTittel[dokumentNavn])
+    .child(S.defaultDocument({ documentId: dokumentNavn, schemaType: dokumentNavn }))
+    .icon(FileIcon)
