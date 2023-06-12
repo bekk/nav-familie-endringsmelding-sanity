@@ -1,7 +1,7 @@
 # nav-familie-endringsmelding-sanity
 Sanity (CMS) for endringsmelding i Team Familie - NAV
 
-1. Installer Sanity `npm install`
+1. Installer avhengigheter `npm install`
 2. Kjør `npm run dev`
 
 # Sanity Clean Content Studio
