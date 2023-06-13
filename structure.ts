@@ -11,7 +11,7 @@ export const structure = (S: StructureBuilder, context: any) => {
     .title('Endringsdialog')
     .items([
       mappe({
-        mappenavn: 'Ordinær barnetrygd',
+        mappenavn: 'Barnetrygd',
         items: [
           mappe({
             mappenavn: stegTittel[Steg.FORSIDE],
@@ -22,6 +22,7 @@ export const structure = (S: StructureBuilder, context: any) => {
           }),
         ],
       }),
+      mappe({ mappenavn: 'Kontantstøtte', items: [] }),
     ])
 }
 

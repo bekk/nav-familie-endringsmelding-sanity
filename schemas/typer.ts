@@ -19,10 +19,16 @@ export type Field = FieldBase &
     | {
         type: SanityTyper.OBJECT
         description?: string
-        validation?: (rule: Rule) => Rule
+        validation?: (rule: Rule) => Rule | Rule[]
       }
-    | { description: `${string | undefined}${'(obligatorisk)'}`; validation: (rule: Rule) => Rule }
-    | { description: `${string | undefined}${'(frivillig)'}`; validation?: (rule: Rule) => Rule }
+    | {
+        description: `${string | undefined}${'(obligatorisk)'}`
+        validation: (rule: Rule) => Rule | Rule[]
+      }
+    | {
+        description: `${string | undefined}${'(frivillig)'}`
+        validation?: (rule: Rule) => Rule | Rule[]
+      }
   )
 
 interface FieldBase {
