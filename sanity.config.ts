@@ -2,10 +2,11 @@ import { defineConfig, definePlugin } from 'sanity'
 import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
+import { structure } from './structure'
 
 const sharedConfig = definePlugin({
   name: 'shareConfig',
-  plugins: [deskTool(), visionTool()],
+  plugins: [deskTool({ structure }), visionTool()],
   schema: {
     types: schemaTypes,
   },
