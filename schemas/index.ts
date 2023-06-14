@@ -1,4 +1,4 @@
 import customBlock from './felles/customBlock'
-import { forside } from './steg/forside'
+import { barnetrygd } from './ytelse/barnetrygd'
 
-export const schemaTypes = [customBlock, ...forside()]
+export const schemaTypes = [customBlock, ...barnetrygd()]

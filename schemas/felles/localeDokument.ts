@@ -1,22 +1,14 @@
-import {
-  DokumentNavn,
-  dokumentTittel,
-  SanityTyper,
-  StegDokument,
-  Steg,
-  CustomSanityTyper,
-  Ytelse,
-} from '../typer'
+import { SanityTyper, StegDokument, Steg, CustomSanityTyper, Ytelse, stegTittel } from '../typer'
 import { apiNavnValideringer } from '../../util/valideringer'
 import { Rule } from '@sanity/types'
 
 const localeDokument =
-  (ytelse: Ytelse, steg: Steg) =>
-  (dokumentNavn: DokumentNavn): StegDokument => ({
+  (ytelse: Ytelse) =>
+  (steg: Steg): StegDokument => ({
     ytelse: ytelse,
     steg: steg,
-    title: dokumentTittel[dokumentNavn],
-    name: dokumentNavn,
+    title: stegTittel[steg],
+    name: `${ytelse}_${steg}`,
     type: SanityTyper.DOCUMENT,
     fields: [
       {

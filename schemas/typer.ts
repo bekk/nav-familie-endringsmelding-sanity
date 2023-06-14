@@ -6,7 +6,7 @@ export interface DokumentBase {
   title: string
   type: SanityTyper.DOCUMENT
   fields: Field[]
-  name: DokumentNavn
+  name: string
   ytelse: Ytelse
 }
 
@@ -62,7 +62,12 @@ export const dokumentTittel: Record<DokumentNavn, string> = {
 
 export enum Ytelse {
   BARNETRYGD = 'BARNETRYGD',
-  KONTANTSTØTTE = 'KONTANTSTØTTE',
+  KONTANTSTOTTE = 'KONTANTSTOTTE',
+}
+
+export const ytelseTittel: Record<Ytelse, string> = {
+  BARNETRYGD: 'Barnetrygd',
+  KONTANTSTOTTE: 'Kontantstøtte',
 }
 
 export enum Steg {
