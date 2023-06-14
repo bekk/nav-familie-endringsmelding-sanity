@@ -50,36 +50,18 @@ export enum CustomSanityTyper {
   CUSTOM_BLOCK = 'customBlock',
 }
 
-export enum DokumentNavn {
-  FORSIDE_TITTEL = 'FORSIDE_TITTEL',
-  FORSIDE_VEILEDER_TITTEL = 'FORSIDE_VEILEDER_TITTEL',
-}
-
-export const dokumentTittel: Record<DokumentNavn, string> = {
-  FORSIDE_TITTEL: 'Tittel',
-  FORSIDE_VEILEDER_TITTEL: 'Veileder tittel',
-}
-
 export enum Ytelse {
   BARNETRYGD = 'BARNETRYGD',
-  KONTANTSTOTTE = 'KONTANTSTOTTE',
 }
 
 export const ytelseTittel: Record<Ytelse, string> = {
   BARNETRYGD: 'Barnetrygd',
-  KONTANTSTOTTE: 'Kontantstøtte',
 }
 
 export enum Steg {
   FORSIDE = 'FORSIDE',
-  KVITTERING = 'KVITTERING',
 }
 
 export const stegTittel: Record<Steg, string> = {
   FORSIDE: 'Forside',
-  KVITTERING: 'Kvittering',
-}
-
-export enum EFlettefelt {
-  SØKER_NAVN = 'SØKER_NAVN',
 }
