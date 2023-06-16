@@ -5,8 +5,6 @@ import { Rule } from '@sanity/types'
 const localeDokument =
   (ytelse: Ytelse) =>
   (steg: Steg): StegDokument => ({
-    ytelse: ytelse,
-    steg: steg,
     title: stegTittel[steg],
     name: `${ytelse}_${steg}`,
     type: SanityTyper.DOCUMENT,
@@ -17,6 +15,18 @@ const localeDokument =
         description: '(obligatorisk)',
         type: SanityTyper.STRING,
         validation: (rule: Rule) => rule.required().error('Dokumentet må ha et visningsnavn'),
+      },
+      {
+        title: 'Steg',
+        name: 'steg',
+        type: SanityTyper.STRING,
+        readOnly: true,
+      },
+      {
+        title: 'Ytelse',
+        name: 'ytelse',
+        type: SanityTyper.STRING,
+        readOnly: true,
       },
       {
         title: 'Api navn',
@@ -47,6 +57,10 @@ const localeDokument =
         validation: (rule: Rule) => rule.required().error('Du må fylle inn engelsk'),
       },
     ],
+    initialValue: {
+      steg: steg,
+      ytelse: ytelse,
+    },
   })
 
 export default localeDokument

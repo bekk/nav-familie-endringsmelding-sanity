@@ -5,13 +5,21 @@ import { Rule } from '@sanity/types'
 export interface DokumentBase {
   title: string
   type: SanityTyper.DOCUMENT
-  fields: Field[]
   name: string
-  ytelse: Ytelse
+}
+
+type ReadOnlyStegField = FieldBase & {
+  type: SanityTyper.STRING
+  name: 'steg' | 'ytelse'
+  readOnly: true
 }
 
 export interface StegDokument extends DokumentBase {
-  steg: Steg
+  fields: (Field | ReadOnlyStegField)[]
+  initialValue: {
+    steg: Steg
+    ytelse: Ytelse
+  }
 }
 
 export type Field = FieldBase &
