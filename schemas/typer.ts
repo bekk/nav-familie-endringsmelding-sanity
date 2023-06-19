@@ -73,3 +73,8 @@ export enum Steg {
 export const stegTittel: Record<Steg, string> = {
   FORSIDE: 'Forside',
 }
+
+export enum EFlettefelt {
+  SØKER_NAVN = 'SØKER_NAVN',
+  BARN_NAVN = 'BARN_NAVN',
+}
