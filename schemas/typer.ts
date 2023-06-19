@@ -76,5 +76,4 @@ export const stegTittel: Record<Steg, string> = {
 
 export enum EFlettefelt {
   SØKER_NAVN = 'SØKER_NAVN',
-  BARN_NAVN = 'BARN_NAVN',
 }
