@@ -52,7 +52,8 @@ const customBlock = {
                 name: 'flettefeltVerdi',
                 type: SanityTyper.STRING,
                 title: 'Flettefeltverdier',
-                validation: (rule: Rule) => rule.required().error('Du må velge gyldig flettefelt!'),
+                validation: (rule: Rule) =>
+                  rule.required().error('Du må velge et gyldig flettefelt!'),
                 options: {
                   list: [{ title: 'Søkers navn', value: EFlettefelt.SØKER_NAVN }],
                 },
