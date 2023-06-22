@@ -13,7 +13,12 @@ export const structure = (S: StructureBuilder, _context: StructureContext) => {
 
   return S.list()
     .title('Endringsdialog')
-    .items([lagYtelsemappe(Ytelse.BARNETRYGD, [lagStegmappe(Ytelse.BARNETRYGD, Steg.FORSIDE)])])
+    .items([
+      lagYtelsemappe(Ytelse.BARNETRYGD, [
+        lagStegmappe(Ytelse.BARNETRYGD, Steg.FORSIDE),
+        lagStegmappe(Ytelse.BARNETRYGD, Steg.SEND_ENDRINGER),
+      ]),
+    ])
 }
 
 const lagStegmappeFunksjon =
