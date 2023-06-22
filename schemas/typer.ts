@@ -73,7 +73,7 @@ export enum Steg {
 
 export const stegTittel: Record<Steg, string> = {
   FORSIDE: 'Forside',
-  SEND_ENDRINGER: 'Send Endringer',
+  SEND_ENDRINGER: 'Send endringer',
 }
 
 export enum EFlettefelt {
