@@ -6,6 +6,7 @@ export const barnetrygd = () => {
   return [
     barnetrygdLocaleDokument(Steg.FORSIDE),
     barnetrygdLocaleDokument(Steg.SEND_ENDRINGER),
+    barnetrygdLocaleDokument(Steg.KVITTERING),
     barnetrygdLocaleDokument(Steg.FELLES),
   ]
 }
