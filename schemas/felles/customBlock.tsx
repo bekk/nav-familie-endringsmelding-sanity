@@ -56,7 +56,10 @@ const customBlock = {
                 validation: (rule: Rule) =>
                   rule.required().error('Du må velge et gyldig flettefelt!'),
                 options: {
-                  list: [{ title: 'Søkers navn', value: EFlettefelt.SØKER_NAVN }],
+                  list: [
+                    { title: 'Søkers navn', value: EFlettefelt.SØKER_NAVN },
+                    { title: 'Innsendt tid', value: EFlettefelt.INNSENDT_TID },
+                  ],
                 },
               },
             ],
