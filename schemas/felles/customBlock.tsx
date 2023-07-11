@@ -11,7 +11,7 @@ const customBlock = {
   of: [
     {
       type: SanityTyper.BLOCK,
-      styles: [{ title: 'Normal', value: 'normal' }],
+      styles: [],
       marks: {
         annotations: [
           {
