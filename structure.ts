@@ -17,6 +17,7 @@ export const structure = (S: StructureBuilder, _context: StructureContext) => {
       lagYtelsemappe(Ytelse.BARNETRYGD, [
         lagStegmappe(Ytelse.BARNETRYGD, Steg.FORSIDE),
         lagStegmappe(Ytelse.BARNETRYGD, Steg.SEND_ENDRINGER),
+        lagStegmappe(Ytelse.BARNETRYGD, Steg.KVITTERING),
         lagStegmappe(Ytelse.BARNETRYGD, Steg.FELLES),
       ]),
     ])

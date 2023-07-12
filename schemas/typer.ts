@@ -69,15 +69,18 @@ export const ytelseTittel: Record<Ytelse, string> = {
 export enum Steg {
   FORSIDE = 'FORSIDE',
   SEND_ENDRINGER = 'SEND_ENDRINGER',
+  KVITTERING = 'KVITTERING',
   FELLES = 'FELLES',
 }
 
 export const stegTittel: Record<Steg, string> = {
   FORSIDE: 'Forside',
   SEND_ENDRINGER: 'Send endringer',
+  KVITTERING: 'Kvittering',
   FELLES: 'Felles',
 }
 
 export enum EFlettefelt {
   SØKER_NAVN = 'SØKER_NAVN',
+  INNSENDT_TID = 'INNSENDT_TID',
 }
