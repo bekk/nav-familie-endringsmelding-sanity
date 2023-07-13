@@ -27,8 +27,8 @@
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "@sanity/eslint-config-studio": "^2.0.1",
-    "@types/react": "^18.0.25",
+    "@sanity/eslint-config-studio": "^2.0.4",
+    "@types/react": "^18.2.14",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.44.0",
     "husky": "^8.0.3",
