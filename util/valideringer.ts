@@ -1,7 +1,7 @@
 import { Rule } from '@sanity/types'
 import groq from 'groq'
 
-import { SanityTyper } from '../schemas/typer'
+import { SanityTyper, Ytelse } from '../schemas/typer'
 import { ValidationContext } from 'sanity'
 
 const førsteTegnErLitenBokstav = (tekst: string): true | string =>
@@ -26,17 +26,17 @@ export const maskinnavnValideringer = (rule: Rule) => [
     .error(`Feltet kan være på maksimalt ${API_NAME_MAX_LENGTH} tegn.`),
 ]
 
-export const apiNavnValideringer = (rule: Rule): Rule[] => [
+export const apiNavnValideringer = (rule: Rule, ytelse: Ytelse): Rule[] => [
   ...maskinnavnValideringer(rule),
   rule.custom(async (value: string, context) => {
     if (value === undefined) return true
-    const erUnik = await erUniktApiNavn(value, context)
+    const erUnik = await erUniktApiNavn(value, ytelse, context)
     if (!erUnik) return 'Apinavnet er ikke unikt.'
     return true
   }),
 ]
 
-const erUniktApiNavn = (apiNavn: string, context: ValidationContext) => {
+const erUniktApiNavn = (apiNavn: string, ytelse: Ytelse, context: ValidationContext) => {
   const { document, getClient } = context
 
   const id = document?._id.replace(/^drafts\./, '')
@@ -46,11 +46,13 @@ const erUniktApiNavn = (apiNavn: string, context: ValidationContext) => {
     published: id,
     type: SanityTyper.DOCUMENT,
     apiNavn,
+    ytelse,
   }
 
   const query = groq`!defined(*[
     !(_id in [$draft, $published]) &&
-    api_navn == $apiNavn
+    api_navn == $apiNavn &&
+    ytelse == $ytelse
   ][0]._id)`
 
   return getClient({ apiVersion: '2022-07-04' }).fetch(query, params)

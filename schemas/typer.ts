@@ -60,10 +60,12 @@ export enum CustomSanityTyper {
 
 export enum Ytelse {
   BARNETRYGD = 'BARNETRYGD',
+  KONTANTSTOTTE = 'KONTANTSTOTTE',
 }
 
 export const ytelseTittel: Record<Ytelse, string> = {
   BARNETRYGD: 'Barnetrygd',
+  KONTANTSTOTTE: 'Kontantstøtte',
 }
 
 export enum Steg {

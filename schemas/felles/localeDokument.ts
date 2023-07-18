@@ -33,7 +33,7 @@ const localeDokument =
         name: 'api_navn',
         type: SanityTyper.STRING,
         description: 'Teknisk navn. Eksempel borPaRegistrertAdresse (obligatorisk)',
-        validation: (rule: Rule) => apiNavnValideringer(rule),
+        validation: (rule: Rule) => apiNavnValideringer(rule, ytelse),
       },
       {
         title: 'Bokmål',
