@@ -58,7 +58,7 @@ const customBlock = {
                 options: {
                   list: [
                     { title: 'Søkers navn', value: EFlettefelt.SØKER_NAVN },
-                    { title: 'mottatt dato', value: EFlettefelt.MOTTATT_DATO },
+                    { title: 'Mottatt dato', value: EFlettefelt.MOTTATT_DATO },
                   ],
                 },
               },
