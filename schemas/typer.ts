@@ -84,5 +84,5 @@ export const stegTittel: Record<Steg, string> = {
 
 export enum EFlettefelt {
   SØKER_NAVN = 'SØKER_NAVN',
-  INNSENDT_TID = 'INNSENDT_TID',
+  MOTTATT_DATO = 'MOTTATT_DATO',
 }
