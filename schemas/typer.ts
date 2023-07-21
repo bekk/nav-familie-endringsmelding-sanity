@@ -73,6 +73,7 @@ export enum Steg {
   SEND_ENDRINGER = 'SEND_ENDRINGER',
   KVITTERING = 'KVITTERING',
   FELLES = 'FELLES',
+  DOKUMENTASJON = 'DOKUMENTASJON',
 }
 
 export const stegTittel: Record<Steg, string> = {
@@ -80,6 +81,7 @@ export const stegTittel: Record<Steg, string> = {
   SEND_ENDRINGER: 'Send endringer',
   KVITTERING: 'Kvittering',
   FELLES: 'Felles',
+  DOKUMENTASJON: 'Dokumentasjon',
 }
 
 export enum EFlettefelt {

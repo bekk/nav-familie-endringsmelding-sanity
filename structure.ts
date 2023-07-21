@@ -19,12 +19,14 @@ export const structure = (S: StructureBuilder, _context: StructureContext) => {
         lagStegmappe(Ytelse.BARNETRYGD, Steg.SEND_ENDRINGER),
         lagStegmappe(Ytelse.BARNETRYGD, Steg.KVITTERING),
         lagStegmappe(Ytelse.BARNETRYGD, Steg.FELLES),
+        lagStegmappe(Ytelse.BARNETRYGD, Steg.DOKUMENTASJON),
       ]),
       lagYtelsemappe(Ytelse.KONTANTSTOTTE, [
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.FORSIDE),
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.SEND_ENDRINGER),
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.KVITTERING),
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.FELLES),
+        lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.DOKUMENTASJON),
       ]),
     ])
 }
