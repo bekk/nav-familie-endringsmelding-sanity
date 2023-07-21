@@ -26,6 +26,7 @@ export const structure = (S: StructureBuilder, _context: StructureContext) => {
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.SEND_ENDRINGER),
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.KVITTERING),
         lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.FELLES),
+        lagStegmappe(Ytelse.KONTANTSTOTTE, Steg.DOKUMENTASJON),
       ]),
     ])
 }

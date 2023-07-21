@@ -8,5 +8,6 @@ export const kontantstøtte = () => {
     kontantstøtteLocaleDokument(Steg.SEND_ENDRINGER),
     kontantstøtteLocaleDokument(Steg.KVITTERING),
     kontantstøtteLocaleDokument(Steg.FELLES),
+    kontantstøtteLocaleDokument(Steg.DOKUMENTASJON),
   ]
 }
