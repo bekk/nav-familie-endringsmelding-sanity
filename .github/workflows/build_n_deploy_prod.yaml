@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy Sanity
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: sanity-io/github-action-sanity@v0.4-alpha
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_DEPLOY_SECRET }}
